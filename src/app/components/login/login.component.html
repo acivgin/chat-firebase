@@ -1,0 +1,31 @@
+<mat-card class="mat-elevation-z5">
+  <mat-card-content>
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+      <h2>Log In</h2>
+      <mat-error *ngIf="!loginValid">
+        The username and password were not recognized
+      </mat-error>
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email">
+        <mat-error *ngIf="email?.errors?.['required']">
+          Please provide a email address
+        </mat-error>
+        <mat-error *ngIf="email?.errors?.['email']">
+          Please provide a valid email address
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" formControlName="password"
+          type="password">
+        <mat-error *ngIf="password?.errors?.['required']">
+          Please provide a password
+        </mat-error>
+      </mat-form-field>
+      <div class="center mt-16">
+        <button mat-raised-button color="primary">Login</button>
+      </div>
+      <span class="center mt-16">New to our plaform? <a class="sing-up-link"
+          routerLink="signup">Sign Up</a></span>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,25 @@
+mat-card {
+	max-width: 450px;
+	margin: 2em auto;
+	text-align: center;
+	background: #fdfdfd;
+}
+
+mat-form-field {
+	display: block;
+}
+
+
+.center {
+	display: flex;
+	justify-content: center;
+}
+
+.mt-16 {
+	margin-top: 16px;
+}
+
+.sing-up-link {
+	font-size: larger;
+	margin-left: 5px;
+}
