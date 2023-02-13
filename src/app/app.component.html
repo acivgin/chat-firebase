@@ -2,9 +2,10 @@
   Sing up Flow with Firebase
 
     <ng-container *ngIf="authService.currentUser$ | async as user; else LogOut">
-      <button mat-button routerLink="login" (click)="logout()">
-        <mat-icon>logout</mat-icon>
-        Logout
+      <button mat-button [matMenuTriggerFor]="userMenu">
+        <mat-icon>account_circle</mat-icon>
+        {{user.displayName ? user.displayName : 'Admin'}}
+        <mat-icon>expand_more</mat-icon>
     </button>
     </ng-container>
     <ng-template #LogOut>
@@ -21,3 +22,7 @@
 <div class="content">
   <router-outlet></router-outlet>
 </div>
+
+<mat-menu #userMenu="matMenu">
+  <button mat-menu-item (click)="logout()">Logout</button>
+</mat-menu>
